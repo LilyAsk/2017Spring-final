@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/main.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <!--start nav-->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -41,8 +40,10 @@
 
 <!--start home-->
 <div class="container-fluid text-center home" id="home">
-    <img title="logo" id="logo" src="../images/logo.png">
-    <h1 id="studioHead">— Lily Studio —</h1>
+    <div class="banner">
+        <img title="logo" id="logo" src="../images/logo.png">
+        <h1 id="studioHead">— Lily Studio —</h1>
+    </div>
 </div>
 <!--end home-->
 <div class="triangle-top-border">
@@ -156,7 +157,7 @@
 </div>
 
 
-<div class="showcase">
+<div class="showcase" id="showcase">
     <div class="container text-center">
         <div class="showcase-head">
             <h2>Showcase</h2>
@@ -209,7 +210,7 @@
     </div>
 </div>
 <div class="page-border"></div>
-<div class="depart">
+<div class="depart" id="department">
     <div class="container text-center">
         <div class="depart-head">
             <p>我们期待热爱互联网技术的你<br>无论技术宅还是技术帝<br>无论你是有节操还是没节操 只有你想不到 没有你做不到</p>
@@ -240,9 +241,10 @@
     </div>
 </div>
 <div class="page-border border2"></div>
-<div class="join">
+<div class="join" id="join">
     <div class="container text-center">
         <div class="join-head">
+            <!--TODO-->
             <h2>Join us</h2>
             <hr>
             <p>Come on. Just stay with us.</p>
@@ -284,11 +286,11 @@
                     <textarea id="hobby" class="form-control" rows="7" name="hobby"></textarea>
                 </div>
             </div>
-            <input type="submit" class="submit-btn" id="submit" value="提交">
+            <input type="submit" class="submit-btn" id="submit" onclick="submit()" value="提交">
         </div>
     </div>
 </div>
-<footer class="container-fluid text-center buttom">
+<footer class="container-fluid text-center bottom-footer">
     <p>Copyright © 2017. LilyStudio All rights reserved.</p>
 </footer>
 </body>

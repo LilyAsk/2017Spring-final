@@ -25,6 +25,7 @@ p {
     box-shadow: 0 1px 1px 0 #FFFFFF;
 }
 .navbar-ul {
+    text-align: right;
     position: relative;
     left: 50%;
     -webkit-transform: translate(-50%);
@@ -34,10 +35,18 @@ p {
     transform: translate(-50%);
 }
 .navbar-ul li a {
+    opacity: 0.6;
     color: #F68383 !important;
 }
-.navbar-ul li:hover {
-    background-color: #DEDCDB !important;
+.navbar-ul li a:hover {
+    opacity: 1.0 !important;
+}
+.navbar-ul li.active {
+    background-color: #FFFFFF !important;
+}
+.navbar-ul li.active a{
+    opacity: 1.0 !important;
+    background-color: transparent !important;
 }
 
 /*home*/
@@ -47,6 +56,9 @@ p {
     overflow: hidden;
     background: url("../images/banner.png") center;
     background-size: cover;
+}
+.banner {
+    animation-duration: 2s !important;
 }
 #logo {
     margin: 200px auto 0;
@@ -434,15 +446,26 @@ div.time-line-node-info h1 {
     border-radius: 10px;
     margin-top: 40px;
     border: none;
-    background-color: #fdc9c9;
+    color: #FFFFFF;
+    background-color: #f68383;
     font-size: 24px;
     outline: none;
+    opacity: 1.0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -ms-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+}
+.submit-btn:hover {
+    opacity: 0.6;
 }
 
-.buttom {
+.bottom-footer {
     background-color: #f68383;
 }
-.buttom p {
+.bottom-footer p {
+    color: #FFFFFF;
     font-size: 20px;
     padding: 20px;
 }

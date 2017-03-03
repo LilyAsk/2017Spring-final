@@ -11,6 +11,32 @@ window.onscroll = function() {
 window.onresize = function () {
     updateTimeLine();
 };
+
+function submit() {
+    var data = {
+        name: $("#name").val(),
+        number: $("#number").val(),
+        sex: $("#sex").val(),
+        email: $("#email").val(),
+        phone: $("#phone").val(),
+        depart: $("#group option:selected").text(),
+        expr: $("#intro").val(),
+        hobby: $("#hobby").val(),
+    };
+
+    $("#submit").attr('disabled', 'disabled');
+
+    $.post("/2016autumn/join.php",data,function(text){
+        $("#success").text(text);
+
+        if(text === "信息不完整，请重新输入！"){
+            $("#submit").removeAttr('disabled')
+        }else{
+
+        }
+    })
+
+}
 function updateTimeLine() {
     var width = window.innerWidth;
     if(width < 768) {
@@ -30,8 +56,15 @@ function updateTimeLine() {
 
 
 function addAnimate() {
+    $(".banner").addClass("animated-ready").attr("href","fadeIn");
+    $(".about").addClass("animated-ready").attr("href","fadeIn");
+
     $(".time-line-node-left").addClass("animated-ready").attr("href","fadeInLeft");
     $(".time-line-node-right").addClass("animated-ready").attr("href","fadeInRight");
+
+    $(".photo-wrapper").addClass("animated-ready").attr("href","zoomInUp");
+    $(".info").addClass("animated-ready").attr("href","fadeInUp");
+    $("#submit").addClass("animated-ready").attr("href","shake");
 }
 
 function animatedReady() {
@@ -56,3 +89,25 @@ function getTop(e){
     return offset;
 }
 
+$(document).ready(function(){
+
+    // Add smooth scrolling to all links in navbar
+    $(".navbar a").on('click', function(event) {
+
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+        });
+    });
+})
